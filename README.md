@@ -1,34 +1,26 @@
-# FinalCourseProject
-# CodeBook for UCI HAR Dataset
+The purpose of this project is to demonstrate your ability to collect, work with, and clean a data set. The goal is to prepare tidy data that can be used for later analysis. You will be graded by your peers on a series of yes/no questions related to the project. You will be required to submit: 1) a tidy data set as described below, 2) a link to a Github repository with your script for performing the analysis, and 3) a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md. You should also include a README.md in the repo with your scripts. This repo explains how all of the scripts work and how they are connected.
 
-## Download dataset
-### Dataset downloaded and extracted
+One of the most exciting areas in all of data science right now is wearable computing - see for example 
+this article 
+. Companies like Fitbit, Nike, and Jawbone Up are racing to develop the most advanced algorithms to attract new users. The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the site where the data was obtained:
 
-## Assign data to variables
-### features <- features.txt : 561 rows, 2 columns  ### activities <- activity_labels.txt : 6 rows, 2 columns  ### subject_test <- test/subject_test.txt : 2947 rows, 1 column  ### x_test <- test/X_test.txt : 2947 rows, 561 columns  ### y_test <- test/y_test.txt : 2947 rows, 1 columns  ### subject_train <- test/subject_train.txt : 7352 rows, 1 column  ### x_train <- test/X_train.txt : 7352 rows, 561 columns  ### y_train <- test/y_train.txt : 7352 rows, 1 columns
-## Merge training and test sets into one
-### X (10299 rows, 561 columns) is created by merging x_train and x_test using rbind() function 
-### Y (10299 rows, 1 column) is created by merging y_train and y_test using rbind() function 
-### Subject (10299 rows, 1 column) is created by merging subject_train and subject_test using rbind() function 
-### Merged_Data (10299 rows, 563 column) is created by merging Subject, Y and X using cbind() function 
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+ 
 
-## Extract only measurements on mean and standard deviation
-### TidyData (10299 rows, 88 columns) is created by selecting columns: subject, code and the measurements on the mean and standard deviation (std) for each measurement 
+Here are the data for the project:
 
-## Use descriptive activity names
-### Entire numbers in code column of the TidyData replaced with corresponding activity taken from second column of the activities variable 
+ 
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+  
 
-## Appropriately label the dataset
-### code column in TidyData renamed into activities 
-### All Acc in column’s name replaced by Accelerometer 
-### All Gyro in column’s name replaced by Gyroscope 
-### All BodyBody in column’s name replaced by Body 
-### All Mag in column’s name replaced by Magnitude 
-### All start with character f in column’s name replaced by Frequency 
-### All start with character t in column’s name replaced by Time 
- 
-## Create a second, independent tidy data set with the average of each variable for each activity and each subject  
-### FinalData (180 rows, 88 columns) is created by summarizing TidyData, taking the means of each variable for each activity and each subject
+You should create one R script called run_analysis.R that does the following. 
 
-## Export final dataset
-### Export FinalData into FinalData.txt file
+Merges the training and the test sets to create one data set.
+
+Extracts only the measurements on the mean and standard deviation for each measurement. 
+
+Uses descriptive activity names to name the activities in the data set
+
+Appropriately labels the data set with descriptive variable names. 
+
+From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
